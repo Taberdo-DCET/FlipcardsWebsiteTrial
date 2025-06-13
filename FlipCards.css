@@ -1,0 +1,418 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: 'ArcadeNormal';
+  src: url('ARCADE_N.TTF') format('truetype');
+}
+
+.background {
+  background-image: url('BACKGROUND.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 0; 
+}
+
+
+.paperwrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.papers, .papers1, .papers2, .papers3, .papers4 {
+  background-image: url('paper.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: inherit;
+  filter: blur(3px);
+  animation: floatUpDown 2s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+.papers { width: 600px; height: 600px; top: 10px; left: -90px; }
+.papers1 { width: 300px; height: 300px; top: 500px; left: -80px; filter: blur(1px); }
+.papers2 { width: 700px; height: 700px; top: 100px; left: 1000px; }
+.papers3 { width: 200px; height: 200px; top: 450px; left: 1190px; }
+.papers4 { width: 800px; height: 800px; top: -200px; left: 690px; }
+
+
+.loginmodal {
+  background-image: url('backmodal.jpg');
+  width: 750px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.modal-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.logo {
+  background-image: url('biglogo.png');
+  background-size: cover;
+  background-position: center;
+  width: 400px;
+  height: 300px;
+  margin-top: -160px;
+}
+
+.words {
+  font-family: 'ArcadeNormal', sans-serif;
+  color: #a50060;
+  font-size: 25px;
+  margin-top: 5px;
+  white-space: nowrap;
+  animation: colorShift 1s infinite alternate;
+}
+
+@keyframes colorShift {
+  0%   { color: #000000; }   
+  50%  { color: #560000; }   
+  100% { color: #645757; }   
+}
+
+.signbtn {
+  position: absolute;
+  bottom: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.signin, .signup {
+  font-family: 'ArcadeNormal', sans-serif;
+  padding: 20px 30px;
+  color: #fff;
+  background-color: #ff6a6b;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  animation: colorShift 1s infinite alternate;
+  outline: auto;
+  outline-color: #fff;
+}
+
+.signin:hover, .signup:hover {
+  background-color: #b81b46;
+  color: black;
+  outline-color: black;
+}
+
+
+.social {
+  position: absolute;
+  bottom: 20px;
+  left: 89%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 2;
+}
+
+.socialicon {
+  width: 50px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.socialicon:hover {
+  transform: scale(1.1);
+}
+
+
+.utilitybtn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-family: 'ArcadeNormal', sans-serif;
+  background-color: #ee8383;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 3;
+}
+
+.utilitybtn:hover {
+  background-color: #b81b46;
+  color: black;
+}
+
+.modalcont {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.login2 {
+  width: 500px;
+  height: 500px;
+  padding: 40px;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  color: white;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 10px;
+}
+
+.inputbox2 {
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-family: 'ArcadeNormal', sans-serif;
+  display: block;
+  margin-top: 40px;
+}
+
+.passw2 {
+  margin-top: -10px;
+}
+
+.passw3 {
+  margin-top: -20px;
+}
+
+.inputbox2::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+button.utilitybtn2 {
+  padding: 10px 20px;
+  background-color: #ff6a6b;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-family: 'ArcadeNormal', sans-serif;
+  transition: background-color 0.3s ease;
+  animation: colorShift 1s infinite alternate;
+}
+
+button.utilitybtn2:hover {
+  background-color: #b81b46;
+  color: black;
+}
+
+.logo2 {
+  background-image: url('biglogo.png');
+  background-size: cover;
+  background-position: center;
+  width: 300px;
+  height: 200px;
+  margin-top: -160px;
+  margin-left: 55px;
+}
+
+.words2 {
+  font-family: 'ArcadeNormal', sans-serif;
+  color: #a50060;
+  font-size: 25px;
+  margin-top: -10px;
+  white-space: nowrap;
+  animation: colorShift 1s infinite alternate;
+}
+
+.signup2 {
+  font-size: smaller;
+  margin-top: 20px;
+  font-family: 'ArcadeNormal', sans-serif;
+}
+
+
+.blur {
+  filter: blur(6px);
+  transition: filter 0.3s ease;
+}
+
+.modal-active .paperwrapper {
+  display: none !important;
+}
+
+
+.btnlabelwrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.btnplaceholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: 'ArcadeNormal', sans-serif;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btnlabelwrapper:hover .btnplaceholder {
+  top: -10px;
+  opacity: 1;
+  color: #000000;
+}
+
+.inputcontainer2 {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  font-family: 'ArcadeNormal', sans-serif;
+  
+}
+
+.inputcontainer2 input.inputbox2 {
+  width: 100%;
+  padding: 12px 10px 12px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-family: 'ArcadeNormal', sans-serif;
+  border: none;
+  border-radius: 8px;
+  
+}
+.inputcontainer {
+  position: relative;
+  width: 80%;
+  margin: 40px auto;
+  font-family: 'ArcadeNormal', sans-serif;
+  
+}
+
+.inputcontainer input.inputbox2 {
+  width: 100%;
+  padding: 12px 10px 12px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-family: 'ArcadeNormal', sans-serif;
+  border: none;
+  border-radius: 8px;
+  
+}
+
+.floatinglabel {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-50%);
+  transition: 0.3s ease;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+.inputcontainer input:focus + .floatinglabel,
+.inputcontainer input:not(:placeholder-shown) + .floatinglabel {
+  top: -10px;
+  font-size: 9px;
+  color: #fff;
+}
+.inputcontainer2 input:focus + .floatinglabel,
+.inputcontainer2 input:not(:placeholder-shown) + .floatinglabel {
+  top: -10px;
+  font-size: 9px;
+  color: #fff;
+}
+.custom-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20000;
+}
+
+.customalert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20000;
+}
+
+.customalert.hidden {
+  display: none;
+}
+
+.customalertbox {
+  background-color: rgba(241, 155, 155, 0.885);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  font-family: 'ArcadeNormal', sans-serif;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.customalertbox p {
+  color: #a50060;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+

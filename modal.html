@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism Modal</title>
+  <link rel="stylesheet" href="FlipCardsLobby.css">
+  <style>
+    .modalchoose {
+      width: 700px;
+      padding: 70px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .buttongrid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .modalbtn2 {
+      width: 240px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #ff6a6b;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-family: 'ArcadeNormal', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      animation: colorShift 1s infinite alternate;
+      font-size: 16px;
+    }
+
+    .modalbtn2:hover {
+      background-color: #b81b46;
+      color: black;
+    }
+
+    .modalbtn2 img {
+      width: 56px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body style="background: #e0eafc; display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+  <div class="modalchoose">
+    <div class="buttongrid2">
+      <button class="modalbtn2">
+        <img src="Learn.png" alt="Learn">
+        Learn
+      </button>
+      <button class="modalbtn2">
+        <img src="Match.png" alt="Match">
+        Match
+      </button>
+      <button class="modalbtn2">
+        <img src="Flashcards.png" alt="Flashcards">
+        Flashcards
+      </button>
+      <button class="modalbtn2">
+        <img src="Test.png" alt="Test">
+        Test
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>

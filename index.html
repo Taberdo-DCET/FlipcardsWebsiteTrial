@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FlipCards</title>
+  <link rel="stylesheet" href="FlipCards.css">
+  <link rel="icon" href="newlog.png" type="image/png">
+</head>
+
+<body class="background">
+  
+  <div id="maincontent">
+    
+  
+    <div class="paperwrapper">
+      <div class="papers"></div>
+      <div class="papers1"></div>
+      <div class="papers2"></div>
+      <div class="papers3"></div>
+      <div class="papers4"></div>
+    </div>
+
+
+    <div class="loginmodal">
+      <div class="modal-content">
+        <div class="logo"></div>
+        <p class="words">Welcome to Flipcards!</p>
+      </div>
+      <div class="signbtn">
+        <div class="btnlabelwrapper">
+          <button id="open1" class="signin">Sign In</button>
+          <span class="btnplaceholder">Log In Account</span>
+        </div>
+        <div class="btnlabelwrapper">
+          <button id="open2" class="signup">Sign Up</button>
+          <span class="btnplaceholder">Create Account</span>
+        </div>
+      </div>
+      
+      <p class="words" style="font-size: 10px; margin-left: 210px; margin-top: -25px;">Taberdo,Raphael E. DCET 1-1 @2025</p>
+    </div> 
+  </div>
+
+
+<div class="modalcont" id="modaloverlay">
+  <div class="login2">
+    <div class="logo2"></div>
+    <h2 class="words2">Sign In</h2>
+
+    <div class="inputcontainer">
+      <input id="signinusername" class="inputbox2" type="text" placeholder=" " required>
+      <label class="floatinglabel">Enter Username</label>
+    </div>      
+
+    <div class="inputcontainer">
+      <input id="signinpassword" class="inputbox2 passw2" type="password" placeholder=" " required>
+      <label class="floatinglabel">Enter Password</label>
+    </div>  
+
+    <button class="utilitybtn2 loginbtn" style="margin-top: -10px;">Log In</button>
+
+    <div class="signup2">
+      Don't have an Account?
+      <button class="utilitybtn2" id="signup" style="margin-top: 15px; font-size: small;">Sign Up!</button>
+    </div>
+  </div>
+</div>
+
+
+  <div class="modalcont" id="modaloverlaysignup">
+  <div class="login2">
+    <div class="logo2"></div>
+    <h2 class="words2">Sign Up</h2>
+
+    <div class="inputcontainer2" style="margin-top: -10px;">
+      <input id="signupusername" class="inputbox2" type="text" placeholder=" " required>
+      <label class="floatinglabel">Enter Username</label>
+    </div>  
+    <br>
+    <div class="inputcontainer2">
+      <input id="signuppassword" class="inputbox2 passw2" type="password" placeholder=" " required style="margin-top: -38px;">
+      <label class="floatinglabel">Enter Password</label>
+    </div> 
+    <br>
+    <div class="inputcontainer2">
+      <input id="signupconfirm" class="inputbox2 passw2" type="password" placeholder=" " required style="margin-top: -38px;">
+      <label class="floatinglabel">Confirm Password</label>
+      <span id="passwordmatchmsg" style="font-size: 10px; color: white; display: block; margin-top: 1px; margin-bottom: 0px; position: absolute; margin-left: 30px;"></span>
+    </div> 
+    <br>
+
+    <button id="signupsubmit" class="utilitybtn2" style="margin-top: -10px;">Create Account</button>
+
+    <div class="signup2">
+      Already have an Account?
+      <button id="signin" class="utilitybtn2" style="margin-top: 15px; font-size: small;">Sign In!</button>
+    </div>
+  </div>
+</div>
+
+  <div class="social">
+    <a href="https://www.facebook.com/Raaaph.28" target="_blank">
+      <img src="FB.png" alt="Facebook" class="socialicon">
+    </a>
+    <a href="https://www.instagram.com/rph.wy" target="_blank">
+      <img src="IG.png" alt="Instagram" class="socialicon">
+    </a>
+    <a href="https://www.twitter.com/" target="_blank">
+      <img src="X.png" alt="X (Twitter)" class="socialicon">
+    </a>
+    <a href="https://www.youtube.com/@PeenoisePlays" target="_blank">
+      <img src="YT.png" alt="YouTube" class="socialicon">
+    </a>
+  </div>
+
+
+  <audio id="bgMusic" src="frontmusic.mp3" loop></audio>
+  <button class="utilitybtn" id="musicToggleBtn" onclick="toggleMusic()">🎵 Play Music</button>
+
+<!-- Custom Alert Modal -->
+<div id="customalert" class="customalert hidden">
+  <div class="customalertbox" id="customalertbox">
+    <p id="customalertmessage">Success message</p>
+    <button class="utilitybtn2" id="alertokbtn">OK</button>
+  </div>
+</div>
+
+
+
+  <script src="music.js"></script>
+  <script src="siginmodalpop.js"></script>
+  <script src="signupmodalpop.js"></script>
+  <script src="sigup.js"></script>
+  <script src="sigin.js"></script>
+  
+
+</body>
+</html>

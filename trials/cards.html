@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlipCards</title>
+  <link rel="stylesheet" href="FlipCardsLobby.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="stylesheet" href="cards.css" />
+  <link rel="icon" href="newlog.png" type="image/png" />
+  <style>
+    @font-face {
+      font-family: 'ArcadeNormal';
+      src: url('ARCADE_N.TTF') format('truetype');
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'ArcadeNormal', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .background1 {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+    }
+
+    .lobby-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      position: absolute;
+      z-index: -2;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('stars.png') no-repeat center center / cover;
+      filter: blur(2px);
+      animation: floatupDown 2s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes floatupDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .FCcont {
+      width: 90%;
+      max-width: 1400px;
+      height: 450px;
+      margin-top: 350px;
+      padding: 20px;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.338);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgb(255, 255, 255);
+      z-index: 100;
+      position: relative;
+    }
+
+    .wc {
+      position: relative;
+      min-width: 300px;
+      height: 100%;
+      color: black;
+      animation: colorShift 1s infinite alternate;
+      background-color: white;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(62, 62, 62, 0.174);
+      padding: 60px 40px;
+      font-size: 10px;
+      transition: transform 0.6s ease;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wc:hover {
+      transform: scale(1.05);
+    }
+
+    .date {
+      font-size: 10px;
+      margin-top: 10px;
+    }
+
+    .titleflashcard {
+      font-size: 14px;
+      color: rgb(95, 0, 112);
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .FCset {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .button {
+      padding: 3px 10px;
+      background-color: #ff6a6b;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-family: 'ArcadeNormal', sans-serif;
+      font-size: larger;
+      animation: colorShift 1s infinite alternate;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #b81b46;
+      color: black;
+    }
+
+    @keyframes colorShift {
+      0%   { color: #000000; }
+      50%  { color: #560000; }
+      100% { color: #645757; }
+    }
+  </style>
+</head>
+<body>
+  <div class="background1">
+    <img src="lobbyback.jpg" alt="Lobby Background" class="lobby-image" />
+    <div class="stars"></div>
+
+    <div class="FCcont">
+      <div class="wc">
+        <p class="FCset">FlashCards Set <button class="button">Review</button></p>
+        <p class="date">April 28, 2025</p>
+        <p class="titleflashcard">Calculus</p>
+      </div>
+      <div class="wc">
+        <p class="FCset">FlashCards Set <button class="button">Review</button></p>
+        <p class="date">April 28, 2025</p>
+        <p class="titleflashcard">Biology</p>
+      </div>
+      <div class="wc">
+        <p class="FCset">FlashCards Set <button class="button">Review</button></p>
+        <p class="date">April 28, 2025</p>
+        <p class="titleflashcard">Physics</p>
+      </div>
+      <div class="wc">
+        <p class="FCset">FlashCards Set <button class="button">Review</button></p>
+        <p class="date">April 28, 2025</p>
+        <p class="titleflashcard">Chemistry</p>
+      </div>
+      <div class="wc">
+        <p class="FCset">FlashCards Set <button class="button">Review</button></p>
+        <p class="date">April 28, 2025</p>
+        <p class="titleflashcard">ENSC</p>
+      </div>
+      <div class="wc">
+        <p class="FCset">FlashCards Set <button class="button">Review</button></p>
+        <p class="date">April 28, 2025</p>
+        <p class="titleflashcard">OOP</p>
+      </div>
+      <div class="wc">
+        <p class="FCset">FlashCards Set <button class="button">Review</button></p>
+        <p class="date">April 28, 2025</p>
+        <p class="titleflashcard">More...</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
