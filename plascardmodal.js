@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeButton = document.querySelector(".closeplascard");
   const backgroundContent = document.getElementById("backk");
 
-  // Open modal on Review button click
+
   flashcardButtons.forEach(button => {
     button.addEventListener("click", function () {
       showLoader(3300);
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Close modal and remove blur
+
   if (closeButton) {
     closeButton.addEventListener("click", function () {
       showLoader(5300);

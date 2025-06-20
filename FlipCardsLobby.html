@@ -195,6 +195,16 @@
         </div>
 
         <div class="FCcont2">
+          <div class="FCrow" id="FCrow">
+      <div class="wcFC" data-key="uniqueStorageKey" data-subject="Science" style="display: none;">
+            <div class="charac2"></div>
+            <p class="FCset">
+              
+            </p>
+            
+            <p class="titleflashcard11" style="font-size: 12px;">"Recent Cards Here! ==>"</p>
+          </div>
+    </div>
 
         </div>
         <div class="FCcont3">
@@ -818,16 +828,31 @@
   </div>
 </div>
 
+
 <div class="settingss" style="display: none;">
   <div class="settin">
     <div class="settingtitle">Settings</div>
-    <audio id="bgMusic" src="manggi.mp3" loop></audio>
-  <button class="utilitybtn" id="musicToggleBtn" onclick="toggleMusic()">🎵 Play Music</button>
-  <button type="button" class="closesettings">
-        <img src="closematch.png" alt="Button Image" style="width: 13px; height: 13px;">
-  </button>
+
+
+    <button class="utilitybtn" id="musicToggleBtn" onclick="toggleMusic()">🎵 Play Music</button>
+
+
+    <button type="button" class="closesettings">
+      <img src="closematch.png" alt="Button Image" style="width: 13px; height: 13px;">
+    </button>
   </div>
 </div>
+
+
+<div id="musicModal" style="display: none;">
+  <iframe id="spotifyPlayer" style="border-radius:12px;"
+    src="https://open.spotify.com/embed/playlist/7ml2ua0UD8YWS9HULceCx1?utm_source=generator&theme=0"
+     frameborder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy">
+  </iframe>
+</div>
+
 
 <!--nandito alerts na custom-->
 <div class="alertsearch alertsearch1" style="display: none;">
@@ -837,6 +862,11 @@
     <button onclick="closeAlertSearch('alertsearch1')" class="alertsearchbtn">got It!</button>
   </div>
 </div>
+
+
+
+
+
 
 <div class="alertedit alertt" style="display: none;">
   <div class="alerteditt">
@@ -871,5 +901,6 @@
     <script src="loading.js"></script>
     <script src="searchinput.js"></script>
     <script src="settings.js"></script>
+    <script src="recent.js"></script>
   </body>
 </html>

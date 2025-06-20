@@ -5,7 +5,7 @@ function showLoader(duration = 1000, onDone) {
   loader.classList.remove("hidden");
   document.body.classList.add("loading");
 
-  // ✅ START RENDERING IMMEDIATELY
+ 
   if (typeof window.renderFlashcards === "function") {
     window.renderFlashcards();
   }
@@ -13,7 +13,7 @@ function showLoader(duration = 1000, onDone) {
     window.displayCreatedCards();
   }
 
-  // ✅ HIDE LOADER AFTER DURATION
+
   setTimeout(() => {
     loader.classList.add("hidden");
     document.body.classList.remove("loading");
@@ -21,7 +21,7 @@ function showLoader(duration = 1000, onDone) {
   }, duration);
 }
 
-// Kick off on DOM ready
+
 window.addEventListener("DOMContentLoaded", () => {
   showLoader(5800);
 });

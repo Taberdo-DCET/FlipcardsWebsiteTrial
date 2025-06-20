@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ... rest of the MATCHING INTERACTION and modal button logic continues unchanged
+
 });
 function closeMatchSuccess() {
   const alert = document.getElementById("matchSuccessAlert");

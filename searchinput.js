@@ -78,12 +78,11 @@ card.querySelector(".review").addEventListener("click", () => {
       if (!searchValue) return;
 
       showLoader(800, () => {
-        // After loading finishes
-        // Clear old search results
+        
         const existingCards = modalContentWrapper.querySelectorAll(".wcsearch");
         existingCards.forEach(card => card.remove());
 
-        // Search all flashcard keys
+       
         const matchingKeys = Object.keys(localStorage).filter(key => {
           if (!key.startsWith("flashcardSet_")) return false;
           try {
@@ -113,7 +112,7 @@ card.querySelector(".review").addEventListener("click", () => {
   }
 });
 
-// ✅ Custom alert functions with no underscores
+
 function showAlertSearch(className, imagePath) {
   const alertEl = document.querySelector(`.${className}`);
   if (!alertEl) return;

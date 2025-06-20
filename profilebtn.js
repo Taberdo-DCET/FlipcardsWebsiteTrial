@@ -2,7 +2,14 @@ function toggleProfileButton() {
   const btn = document.querySelector(".profbtn");
   const modal = document.getElementById("profilemodal");
 
-  btn.classList.toggle("moved");
+  const isMoved = btn.classList.toggle("moved");
+
+  if (isMoved) {
+    btn.style.animation = "none";
+  } else {
+    btn.offsetHeight;
+    btn.style.animation = "move 1.5s infinite";
+  }
 
   if (modal.classList.contains("show")) {
     modal.classList.remove("show");

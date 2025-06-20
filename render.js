@@ -29,14 +29,14 @@ window.renderFlashcards = function () {
   function populateContainers(containers) {
     const len = containers.length;
     flashcardKeys.forEach((key, i) => {
-      const container = containers[i % len]; // Loop back after 10
+      const container = containers[i % len]; 
       if (!container) return;
 
       const data = JSON.parse(localStorage.getItem(key));
       const subject = data.subject || 'No Subject';
       const date = data.date || 'No Date';
 
-      // ✅ ADD these two lines so modals work
+   
       container.setAttribute('data-key', key);
       container.setAttribute('data-storage-key', key);
 
@@ -57,7 +57,7 @@ window.renderFlashcards = function () {
         };
       }
 
-      // Inject delete button if not already present
+   
       if (!container.querySelector('.delete1')) {
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'delete1';
@@ -66,7 +66,7 @@ window.renderFlashcards = function () {
       }
     });
 
-    // Hide unused cards
+
     for (let i = flashcardKeys.length; i < containers.length; i++) {
       containers[i].style.display = 'none';
     }
@@ -78,7 +78,7 @@ window.renderFlashcards = function () {
 
 
 
-// Delete card event
+
 document.addEventListener("click", function (e) {
   const deleteBtn = e.target.closest(".delete1");
   if (!deleteBtn) return;

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const signInModal = document.getElementById("modaloverlay");
   const signUpModal = document.getElementById("modaloverlaysignup");
 
-  // Create and insert password strength message span
+
   const strengthMsg = document.createElement("span");
   strengthMsg.id = "passwordstrengthmsg";
   strengthMsg.style.fontSize = "10px";
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   strengthMsg.style.marginLeft = "30px";
   passwordInput.parentElement.appendChild(strengthMsg);
 
-  // ✅ Real-time password strength check
+ 
   passwordInput.addEventListener("input", function () {
     const val = passwordInput.value;
     let strength = "Weak";
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     strengthMsg.style.color = color;
   });
 
-  // ✅ Real-time password match check
+
   confirmInput.addEventListener("input", function () {
     if (!confirmInput.value) {
       matchMsg.textContent = "";
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // 🚨 Validate password rules
+  
     const passwordRules = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^])[A-Za-z\d@$!%*?&#^]{8,}$/;
     if (!passwordRules.test(password)) {
       showAlert("Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.", "signup");
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     showAlert("Account created successfully!", "signup");
 
-    // Clear form
+   
     usernameInput.value = "";
     passwordInput.value = "";
     confirmInput.value = "";
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     alertMode = "default";
   });
 
-  // Prevent outside click from closing alert
+ 
   alertBox.addEventListener("click", function (e) {
     if (!document.getElementById("customalertbox").contains(e.target)) {
       e.stopPropagation();

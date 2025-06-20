@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const wc = document.createElement("div");
     wc.classList.add("wc");
-    wc.setAttribute("data-storage-key", storageKey); // ✅ add both
+    wc.setAttribute("data-storage-key", storageKey); 
     wc.setAttribute("data-key", storageKey);
 
     wc.innerHTML = `

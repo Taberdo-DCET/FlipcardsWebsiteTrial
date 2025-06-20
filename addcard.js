@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.FS3'),
   ];
 
-  // 🔓 Open modal on button click and restrict date
+
   openButtons.forEach((btn) => {
     if (btn) {
       btn.addEventListener('click', () => {
@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ❌ Close modal when clicking outside the box
+
   modal.addEventListener('click', (e) => {
     if (!modalBox.contains(e.target)) {
       modal.style.display = 'none';
     }
   });
 
-  // ✅ Create Card button logic
+
   createBtn.addEventListener('click', () => {
     const cardInputs = modal.querySelectorAll('.boxinpt1, .boxinpt3');
     const subject = subjectInput.value.trim();
@@ -70,17 +70,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (hasError) return;
 
-    // 🧠 Save to localStorage
+
     const flashcardSet = { subject, date, cards };
     const key = `flashcardSet_${Date.now()}`;
     localStorage.setItem(key, JSON.stringify(flashcardSet));
 
-    // 🎯 Immediately render new cards
+
     if (typeof window.renderFlashcards === 'function') {
       window.renderFlashcards();
     }
 
-    // 🔄 Reset form
+
     subjectInput.value = '';
     dateInput.value = '';
     cardInputs.forEach(card => {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.querySelector('.inptdef1').value = '';
     });
 
-    // ✅ Close modal
+
     modal.style.display = 'none';
 
     if (typeof showLoader === "function") {

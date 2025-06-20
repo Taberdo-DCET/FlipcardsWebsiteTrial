@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const today = new Date().toISOString().split("T")[0];
     dateInput.setAttribute("min", today);
     dateInput.setAttribute("max", today);
-    if (!dateInput.value) dateInput.value = today;
+    dateInput.value = today;
 
     const cardContainer = modal.querySelector('.mdladdcard2');
     cardContainer.querySelectorAll('.boxinpt1, .boxinpt3').forEach(el => el.remove());
@@ -62,10 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const date = dateInput.value.trim();
 
     if (!subject || !date) {
-      const missingAlert = document.querySelector('.alertmissing.missing');
-      if (missingAlert) {
-        missingAlert.style.display = 'flex';
-      }
+      showAlert('.alertmissing.missing');
       return;
     }
 
@@ -78,15 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = [];
     let hasError = false;
 
-    cardInputs.forEach((card, index) => {
+    cardInputs.forEach((card) => {
       const term = card.querySelector('.inpt1')?.value.trim();
       const def = card.querySelector('.inptdef1')?.value.trim();
 
       if (!term || !def) {
-        const missingAlert = document.querySelector('.alertmissing.missing');
-        if (missingAlert) {
-          missingAlert.style.display = 'flex';
-        }
+        showAlert('.alertmissing.missing');
         hasError = true;
         return;
       }
@@ -97,18 +91,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hasError) return;
 
     const updatedSet = { subject, date, cards };
-
     if (currentEditKey) {
       localStorage.setItem(currentEditKey, JSON.stringify(updatedSet));
       currentEditKey = null;
     }
 
-    const successAlert = document.querySelector('.alertedit.alertt');
-    if (successAlert) {
-      successAlert.style.display = 'flex';
-    }
-
     modal.style.display = 'none';
+    showAlert('.alertedit.alertt');
     document.body.classList.remove('noscroll');
 
     if (typeof window.renderFlashcards === 'function') {
@@ -148,12 +137,23 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.querySelector('.mdladdcard2').insertBefore(newCard, modal.querySelector('.boxinpt2'));
     });
   }
+
+  // Helper function to show alert and disable scroll
+  function showAlert(selector) {
+    const alert = document.querySelector(selector);
+    if (alert) {
+      alert.style.display = 'flex';
+      document.body.classList.add('noscroll');
+    }
+  }
 });
 
+// Close alert modals and restore scroll
 window.closeAlertEdit = function (className) {
   const alert = document.querySelector(`.${className}`);
   if (alert) {
     alert.style.display = 'none';
+    document.body.classList.remove('noscroll');
   }
 };
 
@@ -161,5 +161,6 @@ window.closeAlertMissing = function (className) {
   const alert = document.querySelector(`.${className}`);
   if (alert) {
     alert.style.display = 'none';
+    document.body.classList.remove('noscroll');
   }
 };

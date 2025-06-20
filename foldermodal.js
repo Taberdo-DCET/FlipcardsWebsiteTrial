@@ -16,7 +16,7 @@ const folderBtn = document.getElementById('folder');
     mainContent.style.filter = 'blur(8px)';
   });
 
-  // Close modal if clicking outside it
+
   window.addEventListener('click', (e) => {
     if (e.target === folderModal) {
       folderModal.style.display = 'none';

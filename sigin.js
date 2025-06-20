@@ -28,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (user.password !== password) {
       showAlert("Username or password incorrect.", "signin");
     } else {
-  // ✅ Save the username to localStorage
+
   localStorage.setItem("flipcardsLoggedInUser", username);
 
-  // ✅ Redirect to loading screen, which then leads to the lobby
+
   window.location.href = "loading.html?next=FlipCardsLobby.html";
 }
 
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     alertMode = mode;
   }
 
-  // Prevent outside click from closing alert
+
   alertBox.addEventListener("click", function (e) {
     if (!document.getElementById("customalertbox").contains(e.target)) {
       e.stopPropagation();

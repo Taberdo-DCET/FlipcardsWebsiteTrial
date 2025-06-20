@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
 
-  // Universal click handling for review/flashcard buttons
+ 
   document.addEventListener("click", function (e) {
     // REVIEW
     if (e.target.classList.contains("opencardsmodal") || e.target.closest(".opencardsmodal")) {
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (matchCardModal) matchCardModal.style.display = "none";
     }
 
-    // FLASHCARD FROM MATCH MODAL
+ 
     if (e.target.classList.contains("plascardd") || e.target.closest(".plascardd")) {
       if (!lastUsedKey) {
         alert("Please click 'Review' on a flashcard set first.");
@@ -115,13 +115,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Reveal
+
   revealBtn.addEventListener("click", () => {
     if (!cards[currentIndex]) return;
     flipcard.classList.toggle("flipped");
   });
 
-  // Prev/Next
+
   prevBtn.addEventListener("click", () => {
     if (currentIndex > 0) {
       currentIndex--;
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // MATCH LOGIC
+
   if (matchBtn) {
     matchBtn.addEventListener("click", () => {
       modal.style.display = "none";
@@ -162,8 +162,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!Array.isArray(data.cards)) return;
       cards = data.cards;
 
-      // Prepare term-definition pairs
-      const matchPairs = cards.slice(0, 6); // Max 6 pairs
+  
+      const matchPairs = cards.slice(0, 6);
       const matchItems = [];
 
       matchPairs.forEach((item, i) => {
@@ -171,22 +171,22 @@ document.addEventListener("DOMContentLoaded", function () {
         matchItems.push({ type: "definition", value: item.definition, id: `match-${i}` });
       });
 
-      // Add bonus to fill up 12
+
      while (matchItems.length < 12) {
-  // Always push bonus in pairs with same ID
+
   matchItems.push({ type: "bonus", value: "Bonus Card!", id: `bonus-match` });
   matchItems.push({ type: "bonus", value: "Bonus Card!", id: `bonus-match` });
 }
-matchItems.length = 12; // Trim in case it exceeds due to pair logic
+matchItems.length = 12; 
 
 
-      // Shuffle
+
       for (let i = matchItems.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [matchItems[i], matchItems[j]] = [matchItems[j], matchItems[i]];
       }
 
-      // Fill mcard1–12
+
       matchItems.forEach((item, idx) => {
         const el = document.querySelector(`.mcard${idx + 1}`);
         if (el) {
@@ -204,7 +204,7 @@ matchItems.length = 12; // Trim in case it exceeds due to pair logic
     });
   }
 
-  // MATCHING INTERACTION
+
   let selectedCards = [];
 
   document.addEventListener("click", function (e) {
@@ -223,7 +223,7 @@ const isBonus = first.dataset.matchId === "bonus-match" && second.dataset.matchI
 
 if ((sameId && differentTypes) || isBonus) {
 
-  // ✅ Match with shrink and fade animation
+
   first.classList.add("matched");
   second.classList.add("matched");
 
@@ -234,15 +234,15 @@ if ((sameId && differentTypes) || isBonus) {
     second.classList.remove("matched", "selected");
     selectedCards = [];
 
-    // Check win condition
+
     const remaining = document.querySelectorAll('[class^="mcard"]:not([style*="visibility: hidden"])');
     if (remaining.length === 0) {
       document.getElementById("matchSuccessAlert").style.display = "flex";
 
     }
-  }, 500); // Delay to allow animation to play
+  }, 500); 
 } else {
-  // ❌ Mismatch with shake animation
+
   first.classList.add("shake");
   second.classList.add("shake");
 
@@ -250,17 +250,17 @@ if ((sameId && differentTypes) || isBonus) {
     first.classList.remove("shake", "selected");
     second.classList.remove("shake", "selected");
     selectedCards = [];
-  }, 500); // Shake animation duration
+  }, 500); 
 }
     }
 
   });
-  // MATCH MODAL BUTTON FUNCTIONS
+
 const closeMatchBtn = document.querySelector(".closematch");
 const shuffleMatchBtn = document.querySelector(".shufflematch");
 const retryMatchBtn = document.querySelector(".retrymatch");
 
-// Store current matchItems globally for retryMatch
+
 let currentMatchItems = [];
 
 if (closeMatchBtn) {
@@ -276,7 +276,7 @@ if (closeMatchBtn) {
     }
     document.body.style.overflow = "";
 
-    // Optional: remove any leftover blur-related classes
+  
     document.querySelectorAll(".blur, .backdrop-active").forEach(el => {
       el.classList.remove("blur", "backdrop-active");
     });
@@ -285,7 +285,7 @@ if (closeMatchBtn) {
     if (matchCardModal) matchCardModal.style.display = "none";
     document.body.style.overflow = "";
 
-    // Remove any backdrop blur effect
+  
     const blurredElements = document.querySelectorAll(".blurred, .backdrop-active");
     blurredElements.forEach(el => el.classList.remove("blurred", "backdrop-active"));
   });
@@ -295,7 +295,7 @@ if (shuffleMatchBtn) {
   shuffleMatchBtn.addEventListener("click", () => {
     if (!cards || cards.length === 0) return;
 
-    // Generate new randomized match items (same logic as matchBtn)
+ 
     const matchPairs = cards.slice(0, 6);
     const matchItems = [];
 
@@ -305,11 +305,11 @@ if (shuffleMatchBtn) {
     });
 
     while (matchItems.length < 12) {
-  // Always push bonus in pairs with same ID
+
   matchItems.push({ type: "bonus", value: "Bonus Card!", id: `bonus-match` });
   matchItems.push({ type: "bonus", value: "Bonus Card!", id: `bonus-match` });
 }
-matchItems.length = 12; // Trim in case it exceeds due to pair logic
+matchItems.length = 12; 
 
 
     for (let i = matchItems.length - 1; i > 0; i--) {
